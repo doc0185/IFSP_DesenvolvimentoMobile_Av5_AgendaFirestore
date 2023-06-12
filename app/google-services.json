@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "793897013418",
+    "project_id": "agendadmoatividade5",
+    "storage_bucket": "agendadmoatividade5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793897013418:android:345d86a028a20122bd00d3",
+        "android_client_info": {
+          "package_name": "br.edu.ifsp.dmo.dmoagendafirebase_atividade5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793897013418-buph8j2p5bpn7m4lo6jh3ob61mueb8l4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZuw4Y15fOmBAwdkZTZTTbcMuDJiwPlG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793897013418-buph8j2p5bpn7m4lo6jh3ob61mueb8l4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
