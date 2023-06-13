@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,11 +23,12 @@ import br.edu.ifsp.dmo.dmoagendafirebase_atividade5.mvp.MainMVP;
 import br.edu.ifsp.dmo.dmoagendafirebase_atividade5.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity
-        implements MainMVP.View, View.OnClickListener {
+        implements MainMVP.View, View.OnClickListener, SearchView.OnQueryTextListener{
 
     private MainMVP.Presenter presenter;
     private FloatingActionButton mActionButton;
     private RecyclerView mRecyclerView;
+    private SearchView editSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.populate(mRecyclerView);
+        presenter.populate(mRecyclerView, null);
         presenter.startListener();
     }
 
@@ -72,9 +75,27 @@ public class MainActivity extends AppCompatActivity
     private void findById(){
         mActionButton = findViewById(R.id.fab_new_contact);
         mRecyclerView = findViewById(R.id.recyler_view);
+        editSearch = findViewById(R.id.search);
+        editSearch.setOnQueryTextListener(this);
     }
 
     private void setListener(){
         mActionButton.setOnClickListener(this);
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+
+        presenter.populate(mRecyclerView, s);
+        presenter.startListener();
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        presenter.populate(mRecyclerView, s);
+        presenter.startListener();
+        return false;
     }
 }
